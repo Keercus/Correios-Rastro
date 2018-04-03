@@ -16,69 +16,82 @@ class Result
 
     private $erro;
 
-    public function getNumero() : string
+    private $evento;
+
+    public function getNumero(): string
     {
         return $this->numero;
     }
 
-    public function setNumero(string $numero) : self
+    public function setNumero(string $numero): self
     {
         $this->numero = $numero;
         return $this;
     }
 
-    public function getSigla() : string
+    public function getSigla(): string
     {
         return $this->sigla;
     }
 
-    public function setSigla(string $sigla) : self
+    public function setSigla(string $sigla): self
     {
         $this->sigla = $sigla;
         return $this;
     }
 
-    public function getNome() : string
+    public function getNome(): string
     {
         return $this->nome;
     }
 
-    public function setNome(string $nome) : self
+    public function setNome(string $nome): self
     {
         $this->nome = $nome;
         return $this;
     }
 
-    public function getCategoria() : string
+    public function getCategoria(): string
     {
         return $this->categoria;
     }
 
-    public function setCategoria(string $categoria) : self
+    public function setCategoria(string $categoria): self
     {
         $this->categoria = $categoria;
         return $this;
     }
 
-    public function getErro() : string
+    public function getErro(): string
     {
         return $this->erro;
     }
 
-    public function setErro(string $erro) : self
+    public function setErro(string $erro): self
     {
         $this->erro = $erro;
         return $this;
     }
 
-    public function getVersao() : string
+    public function getVersao(): string
     {
         return $this->versao;
     }
 
-    public function setVersao(string $versao) : self
+    public function setVersao(string $versao): self
     {
         $this->versao = $versao;
+        return $this;
+    }
+
+    public function getEvento(): Evento
+    {
+        return $this->evento;
+    }
+
+    public function setEvento(Evento $evento): self
+    {
+        $this->evento = $evento;
         return $this;
     }
 }

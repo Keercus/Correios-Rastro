@@ -16,7 +16,7 @@ class Rastro
     public function fetch($codes)
     {
         foreach ($this->requestData($codes) as $code => $data) {
-            var_dump($code, $data);
+            var_dump($code, $data->return);
         }
     }
 

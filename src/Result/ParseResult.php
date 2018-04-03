@@ -23,6 +23,25 @@ class ParseResult
             return $result;
         }
 
+        $result->setNumero($objeto->numero);
+        $result->setSigla($objeto->sigla);
+        $result->setNome($objeto->nome);
+        $result->setCategoria($objeto->categoria);
+
+        $eventoObj = $objeto->evento;
+        $evento = new Evento();
+        $evento->setTipo($eventoObj->tipo);
+        $evento->setStatus($eventoObj->status);
+        $evento->setDataHora($eventoObj->data . ' ' . $eventoObj->hora);
+        $evento->setDescricao($eventoObj->descricao);
+        $evento->setDetalhe($eventoObj->detalhe);
+        $evento->setLocal($eventoObj->local);
+        $evento->setCodigo($eventoObj->codigo);
+        $evento->setCidade($eventoObj->cidade);
+        $evento->setUf($eventoObj->uf);
+
+        $result->setEvento($evento);
+
         return $result;
     }
 }

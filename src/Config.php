@@ -18,7 +18,7 @@ class Config
 
     private $type = self::TYPE_LIST_OBJECT;
 
-    private $resultType = self::RESULT_LIST_EVENT;
+    private $resultType = self::RESULT_LAST_EVENT;
 
     private $language = '101';
 
