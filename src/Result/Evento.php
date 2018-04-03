@@ -66,12 +66,12 @@ class Evento
         return $this;
     }
 
-    public function getDetalhe(): string
+    public function getDetalhe(): ?string
     {
         return $this->detalhe;
     }
 
-    public function setDetalhe(string $detalhe): self
+    public function setDetalhe(?string $detalhe): self
     {
         $this->detalhe = $detalhe;
         return $this;

@@ -2,6 +2,9 @@
 
 namespace Correios\Rastro;
 
+use Correios\Rastro\Result\ParseResult;
+use Correios\Rastro\Component\Collection;
+
 class Rastro
 {
     const WSDL_RASTRO = 'https://webservice.correios.com.br/service/rastro/Rastro.wsdl';
@@ -13,11 +16,18 @@ class Rastro
         $this->config = $config;
     }
 
-    public function fetch($codes)
+    public function fetch($codes): Collection
     {
-        foreach ($this->requestData($codes) as $code => $data) {
-            var_dump($code, $data->return);
+        if (!is_array($codes)) {
+            $codes = [$codes];
         }
+        $collection = new Collection();
+        foreach ($this->requestData($codes) as $code => $data) {
+            var_dump($code);
+            $parseResult = new ParseResult($data);
+            $collection->offsetSet($code, $parseResult());
+        }
+        return $collection;
     }
 
     private function getClient() : \SoapClient

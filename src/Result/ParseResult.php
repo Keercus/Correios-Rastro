@@ -32,9 +32,14 @@ class ParseResult
         $evento = new Evento();
         $evento->setTipo($eventoObj->tipo);
         $evento->setStatus($eventoObj->status);
-        $evento->setDataHora($eventoObj->data . ' ' . $eventoObj->hora);
+        $date = $eventoObj->data;
+        if (strpos($date, '/')) {
+            list($day, $month, $year) = explode('/', $date);
+            $date = sprintf('%s-%s-%s', $year, $month, $day);
+        }
+        $evento->setDataHora($date . ' ' . $eventoObj->hora);
         $evento->setDescricao($eventoObj->descricao);
-        $evento->setDetalhe($eventoObj->detalhe);
+        $evento->setDetalhe($eventoObj->detalhe ?? null);
         $evento->setLocal($eventoObj->local);
         $evento->setCodigo($eventoObj->codigo);
         $evento->setCidade($eventoObj->cidade);
